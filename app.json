@@ -1,0 +1,12 @@
+{
+  "name": "fore-cast",
+  "displayName": "fore-cast",
+  "expo": {
+    "name": "fore-cast",
+    "slug": "fore-cast",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
