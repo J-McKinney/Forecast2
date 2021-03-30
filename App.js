@@ -1,16 +1,3 @@
-// import { StatusBar } from "expo-status-bar";
-// import React from "react";
-// import { StyleSheet, Text, View } from "react-native";
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working now with disney plus!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import { Alert, StyleSheet, Text, View, TouchableOpacity } from "react-native";
