@@ -63,3 +63,10 @@ buck-out/
 # Expo
 .expo/*
 web-build/
+
+#misc
+env
+.env
+/env
+/.env
+./env

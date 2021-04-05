@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
+import { GKey, WKey, YClientID, YKey } from "react-native-dotenv";
+// import axios from "axios";
 import {
   ActivityIndicator,
   Alert,
@@ -10,6 +12,7 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
+require("dotenv").config();
 
 export default class App extends Component {
   state = {
@@ -61,13 +64,15 @@ export default class App extends Component {
 
   getForeCast = (e) => {
     e.preventDefault();
+    console.log("Hello");
+    console.log(YClientID, YKey, WKey, GKey);
   };
 
   render() {
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.container}>
-          <TouchableOpacity onPress={this.findCoordinates}>
+          <TouchableOpacity onPress={this.getForeCast}>
             <Text style={styles.welcome}>Find My Coords?</Text>
             {/* <Text style={styles.welcome}>Location: {this.state.location}</Text> */}
             <Text style={styles.welcome}>Latitude: {this.state.myLat}</Text>
