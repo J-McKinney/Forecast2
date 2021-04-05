@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { GKey, WKey, YClientID, YKey } from "react-native-dotenv";
+// import { G_Key, W_Key, YClientID, Y_Key } from "react-native-dotenv";
 // import axios from "axios";
 import {
   ActivityIndicator,
@@ -12,7 +12,6 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-require("dotenv").config();
 
 export default class App extends Component {
   state = {
@@ -64,8 +63,8 @@ export default class App extends Component {
 
   getForeCast = (e) => {
     e.preventDefault();
-    console.log("Hello");
-    console.log(YClientID, YKey, WKey, GKey);
+    console.log("Hello You");
+    // console.log(YClientID, Y_Key, W_Key, G_Key);
   };
 
   render() {
