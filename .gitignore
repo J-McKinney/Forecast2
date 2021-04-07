@@ -66,3 +66,4 @@ web-build/
 
 # misc
 .env
+.env.development

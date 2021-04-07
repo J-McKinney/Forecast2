@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import config from "./config";
+import CHECKERS from "react-native-dotenv";
+// import CHECKERS from "@env";
 // import axios from "axios";
 import {
   Alert,
@@ -44,9 +45,7 @@ export default class App extends Component {
         maximumAge: 0,
       }
     );
-    console.log(this.state.myLat);
-    console.log(this.state.myLon);
-    console.log("APIKEY: " + config.API_KEY)
+    console.log(CHECKERS);
   }
 
   findCoordinates = () => {
@@ -64,7 +63,7 @@ export default class App extends Component {
   getForeCast = (e) => {
     e.preventDefault();
     console.log("Hello You");
-    // console.log(API_KEY);
+    console.log(CHECKERS);
   };
 
   render() {

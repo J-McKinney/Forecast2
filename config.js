@@ -1,5 +1,5 @@
-import { API_KEY } from "react-native-dotenv";
+// import { MY_API_KEY } from "react-native-dotenv";
 
-export default {
-  API_KEY,
-};
+// export default {
+//   MY_API_KEY,
+// };
