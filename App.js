@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-// import { API_KEY } from "react-native-dotenv";
+// import API_KEY from "dotenv"
 // import axios from "axios";
 import {
   Alert,
@@ -73,7 +73,7 @@ export default class App extends Component {
           <TouchableOpacity onPress={this.getForeCast}>
             <Text style={styles.welcome}>Find My Coords?</Text>
             {/* <Text style={styles.welcome}>Location: {this.state.location}</Text> */}
-            {/* <Text>API_KEY: {API_KEY}</Text> */}
+            {/* <Text>API_KEY: {Config.API_KEY}</Text> */}
             <Text style={styles.welcome}>Latitude: {this.state.myLat}</Text>
             <Text style={styles.welcome}>Longitude: {this.state.myLon}</Text>
           </TouchableOpacity>
