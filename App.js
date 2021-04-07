@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-// import API_KEY from "@env"
+import config from "./config";
 // import axios from "axios";
 import {
   Alert,
@@ -46,6 +46,7 @@ export default class App extends Component {
     );
     console.log(this.state.myLat);
     console.log(this.state.myLon);
+    console.log("APIKEY: " + config.API_KEY)
   }
 
   findCoordinates = () => {
