@@ -1,9 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-// import { G_Key, W_Key, YClientID, Y_Key } from "react-native-dotenv";
+// import { API_KEY } from "react-native-dotenv";
 // import axios from "axios";
 import {
-  ActivityIndicator,
   Alert,
   Button,
   SafeAreaView,
@@ -19,14 +18,14 @@ export default class App extends Component {
     // location: [],
     myLat: "",
     myLon: "",
-    city: "",
-    state: "",
-    zip: "",
-    weatherDescription: "",
-    temp: "",
-    humidity: "",
-    windSpeed: "",
-    placesToGolf: [],
+    // city: "",
+    // state: "",
+    // zip: "",
+    // weatherDescription: "",
+    // temp: "",
+    // humidity: "",
+    // windSpeed: "",
+    // placesToGolf: [],
   };
 
   componentDidMount() {
@@ -64,7 +63,7 @@ export default class App extends Component {
   getForeCast = (e) => {
     e.preventDefault();
     console.log("Hello You");
-    // console.log(YClientID, Y_Key, W_Key, G_Key);
+    // console.log(API_KEY);
   };
 
   render() {
@@ -74,6 +73,7 @@ export default class App extends Component {
           <TouchableOpacity onPress={this.getForeCast}>
             <Text style={styles.welcome}>Find My Coords?</Text>
             {/* <Text style={styles.welcome}>Location: {this.state.location}</Text> */}
+            {/* <Text>API_KEY: {API_KEY}</Text> */}
             <Text style={styles.welcome}>Latitude: {this.state.myLat}</Text>
             <Text style={styles.welcome}>Longitude: {this.state.myLon}</Text>
           </TouchableOpacity>
