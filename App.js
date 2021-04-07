@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-// import API_KEY from "dotenv"
+// import API_KEY from "@env"
 // import axios from "axios";
 import {
   Alert,
