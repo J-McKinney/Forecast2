@@ -1,7 +1,7 @@
-// import { GOOGLE_KEY, YELP_KEY, WEATHER_KEY } from "react-native-dotenv";
+import { GOOGLE_KEY, YELP_KEY, WEATHER_KEY } from "@env";
 
-// export default {
-//   GOOGLE_KEY,
-//   YELP_KEY,
-//   WEATHER_KEY,
-// };
+export default {
+  GOOGLE_KEY,
+  YELP_KEY,
+  WEATHER_KEY,
+};

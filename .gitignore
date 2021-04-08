@@ -66,12 +66,3 @@ web-build/
 
 # misc
 .env
-.config
-.config.js
-./config
-./config.js
-.config/*
-.config/
-/config/
-.config.js/*
-config.js

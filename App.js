@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-// import config from "./config";
+import config from "./config.js";
 // import axios from "axios";
 import {
   Alert,
@@ -44,9 +44,7 @@ export default class App extends Component {
         maximumAge: 0,
       }
     );
-    // console.log(config.GOOGLE_KEY);
-    // console.log(config.YELP_KEY);
-    // console.log(config.WEATHER_KEY);
+    console.log(config);
   }
 
   findCoordinates = () => {
@@ -64,6 +62,7 @@ export default class App extends Component {
   getForeCast = (e) => {
     e.preventDefault();
     console.log("Hello You!");
+    console.log(config.GOOGLE_KEY);
   };
 
   render() {
