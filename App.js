@@ -11,9 +11,11 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Image,
   ImageBackground,
 } from "react-native";
 import golfCourse from "./assets/golf2.png";
+import golfBall from "./assets/golfBall.svg";
 
 export default class App extends Component {
   state = {
@@ -140,6 +142,9 @@ export default class App extends Component {
               style={styles.img}
               imageStyle={{ resizeMode: "repeat" }}
             >
+              <View style={styles.logoContainer}>
+                <Image source={golfBall} style={styles.logo} alt="Logo" />
+              </View>
               <TouchableOpacity onPress={this.getForeCast}>
                 <Text style={styles.welcome}>Fore-Cast</Text>
               </TouchableOpacity>
@@ -188,6 +193,7 @@ export default class App extends Component {
                   .filter((place) => place)
                   .map((filteredPlaces) => (
                     <View key={filteredPlaces.id}>
+                      <View style={{ height: "20px" }} />
                       <Text style={styles.welcome}>{filteredPlaces.name}</Text>
                       <Text
                         style={styles.welcome}
@@ -211,6 +217,7 @@ export default class App extends Component {
                       <Text style={styles.welcome}>
                         Rating: {filteredPlaces.rating}/5
                       </Text>
+                      <View style={{ height: "20px" }} />
                       <View
                         style={{
                           width: "100%",
@@ -234,7 +241,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   safeArea: {
-    flex: 1,
+    // flex: 1,
   },
   container: {
     flex: 1,
@@ -242,8 +249,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  logoContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingBottom: "50px",
+    paddingTop: "50px",
+  },
   welcome: {
     fontSize: 20,
+    fontWeight: "bold",
     textAlign: "center",
     justifyContent: "center",
   },
@@ -251,6 +266,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     height: "100%",
     width: "100%",
+    justifyContent: "center",
+  },
+  logo: {
+    textAlign: "center",
+    height: "200px",
+    width: "200px",
     justifyContent: "center",
   },
 });
