@@ -67,3 +67,7 @@ web-build/
 # misc
 .env
 .env.development
+.env.production
+.env.template
+./config
+./config.js

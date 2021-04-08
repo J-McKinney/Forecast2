@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import config from "./config";
+// import config from "./config";
 // import axios from "axios";
 import {
   Alert,
@@ -44,9 +44,9 @@ export default class App extends Component {
         maximumAge: 0,
       }
     );
-    console.log(config.GOOGLE_KEY);
-    console.log(config.YELP_KEY);
-    console.log(config.WEATHER_KEY);
+    // console.log(config.GOOGLE_KEY);
+    // console.log(config.YELP_KEY);
+    // console.log(config.WEATHER_KEY);
   }
 
   findCoordinates = () => {
@@ -73,7 +73,6 @@ export default class App extends Component {
           <TouchableOpacity onPress={this.getForeCast}>
             <Text style={styles.welcome}>Find My Coords?</Text>
             {/* <Text style={styles.welcome}>Location: {this.state.location}</Text> */}
-            {/* <Text>API_KEY: {Config.API_KEY}</Text> */}
             <Text style={styles.welcome}>Latitude: {this.state.myLat}</Text>
             <Text style={styles.welcome}>Longitude: {this.state.myLon}</Text>
           </TouchableOpacity>
