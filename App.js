@@ -5,6 +5,7 @@ import axios from "axios";
 import {
   Alert,
   Button,
+  Linking,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -151,6 +152,65 @@ export default class App extends Component {
               " " +
               this.state.zip}
           </Text>
+          <View
+            style={{
+              width: "100%",
+              borderBottomColor: "black",
+              borderBottomWidth: 1,
+              textAlign: "center",
+              justifyContent: "center",
+            }}
+          />
+          <Text style={styles.welcome}>
+            Golf Results Closest To Furthest From You:
+          </Text>
+          <View
+            style={{
+              width: "100%",
+              borderBottomColor: "black",
+              borderBottomWidth: 1,
+              textAlign: "center",
+              justifyContent: "center",
+            }}
+          />
+          <View>
+            {this.state.placesToGolf
+              .filter((place) => place)
+              .map((filteredPlaces) => (
+                <View key={filteredPlaces.id}>
+                  <Text style={styles.welcome}>{filteredPlaces.name}</Text>
+                  <Text
+                    style={styles.welcome}
+                    onPress={() => {
+                      Linking.openURL("tel:`${filteredPlaces.display_phone}`");
+                    }}
+                  >
+                    {filteredPlaces.display_phone}
+                  </Text>
+                  <Text style={styles.welcome}>
+                    {filteredPlaces.location.display_address[0]}
+                  </Text>
+                  <Text style={styles.welcome}>
+                    {filteredPlaces.location.display_address[1]}
+                  </Text>
+                  <Text style={styles.welcome}>
+                    {filteredPlaces.location.display_address[2]}
+                  </Text>
+                  <Text style={styles.welcome}>
+                    Rating: {filteredPlaces.rating}/5
+                  </Text>
+                  <View
+                    style={{
+                      width: "100%",
+                      borderBottomColor: "black",
+                      borderBottomWidth: 1,
+                      textAlign: "center",
+                      justifyContent: "center",
+                    }}
+                  />
+                </View>
+              ))}
+          </View>
           <StatusBar style="auto" />
         </View>
       </SafeAreaView>
@@ -171,6 +231,6 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: "center",
-    margin: 10,
+    justifyContent: "center",
   },
 });
