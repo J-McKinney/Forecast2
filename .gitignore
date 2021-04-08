@@ -69,5 +69,12 @@ web-build/
 .env.development
 .env.production
 .env.template
+.config
+.config.js
 ./config
 ./config.js
+.config/*
+.config/
+/config/
+.config.js/*
+config.js
