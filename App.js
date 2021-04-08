@@ -11,7 +11,9 @@ import {
   Text,
   View,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
+import golfCourse from "./assets/golf2.png";
 
 export default class App extends Component {
   state = {
@@ -130,90 +132,102 @@ export default class App extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.container}>
-          <TouchableOpacity onPress={this.getForeCast}>
-            <Text style={styles.welcome}>Fore-Cast</Text>
-          </TouchableOpacity>
-          <Text style={styles.welcome}>Temp: {this.state.temp} Fehrenheit</Text>
-          <Text style={styles.welcome}>Humidity: {this.state.humidity}%</Text>
-          <Text style={styles.welcome}>
-            Wind Speed: {this.state.windSpeed}/mph
-          </Text>
-          <Text style={styles.welcome}>
-            Forecast: {this.state.weatherDescription}
-          </Text>
-          <Text style={styles.welcome}>
-            Your Location:
-            {" " +
-              this.state.city +
-              " " +
-              this.state.state +
-              " " +
-              this.state.zip}
-          </Text>
-          <View
-            style={{
-              width: "100%",
-              borderBottomColor: "black",
-              borderBottomWidth: 1,
-              textAlign: "center",
-              justifyContent: "center",
-            }}
-          />
-          <Text style={styles.welcome}>
-            Golf Results Closest To Furthest From You:
-          </Text>
-          <View
-            style={{
-              width: "100%",
-              borderBottomColor: "black",
-              borderBottomWidth: 1,
-              textAlign: "center",
-              justifyContent: "center",
-            }}
-          />
-          <View>
-            {this.state.placesToGolf
-              .filter((place) => place)
-              .map((filteredPlaces) => (
-                <View key={filteredPlaces.id}>
-                  <Text style={styles.welcome}>{filteredPlaces.name}</Text>
-                  <Text
-                    style={styles.welcome}
-                    onPress={() => {
-                      Linking.openURL("tel:`${filteredPlaces.display_phone}`");
-                    }}
-                  >
-                    {filteredPlaces.display_phone}
-                  </Text>
-                  <Text style={styles.welcome}>
-                    {filteredPlaces.location.display_address[0]}
-                  </Text>
-                  <Text style={styles.welcome}>
-                    {filteredPlaces.location.display_address[1]}
-                  </Text>
-                  <Text style={styles.welcome}>
-                    {filteredPlaces.location.display_address[2]}
-                  </Text>
-                  <Text style={styles.welcome}>
-                    Rating: {filteredPlaces.rating}/5
-                  </Text>
-                  <View
-                    style={{
-                      width: "100%",
-                      borderBottomColor: "black",
-                      borderBottomWidth: 1,
-                      textAlign: "center",
-                      justifyContent: "center",
-                    }}
-                  />
-                </View>
-              ))}
+      <>
+        <SafeAreaView style={styles.safeArea}>
+          <View style={styles.container}>
+            <ImageBackground
+              source={golfCourse}
+              style={styles.img}
+              imageStyle={{ resizeMode: "repeat" }}
+            >
+              <TouchableOpacity onPress={this.getForeCast}>
+                <Text style={styles.welcome}>Fore-Cast</Text>
+              </TouchableOpacity>
+              <Text style={styles.welcome}>
+                Temp: {this.state.temp} Fehrenheit
+              </Text>
+              <Text style={styles.welcome}>
+                Humidity: {this.state.humidity}%
+              </Text>
+              <Text style={styles.welcome}>
+                Wind Speed: {this.state.windSpeed}/mph
+              </Text>
+              <Text style={styles.welcome}>
+                Forecast: {this.state.weatherDescription}
+              </Text>
+              <Text style={styles.welcome}>
+                Your Location:
+                {" " +
+                  this.state.city +
+                  " " +
+                  this.state.state +
+                  " " +
+                  this.state.zip}
+              </Text>
+              <View
+                style={{
+                  width: "100%",
+                  borderBottomColor: "black",
+                  borderBottomWidth: 1,
+                  textAlign: "center",
+                  justifyContent: "center",
+                }}
+              />
+              <Text style={styles.welcome}>Golf Results Closest To You:</Text>
+              <View
+                style={{
+                  width: "100%",
+                  borderBottomColor: "black",
+                  borderBottomWidth: 1,
+                  textAlign: "center",
+                  justifyContent: "center",
+                }}
+              />
+              <View>
+                {this.state.placesToGolf
+                  .filter((place) => place)
+                  .map((filteredPlaces) => (
+                    <View key={filteredPlaces.id}>
+                      <Text style={styles.welcome}>{filteredPlaces.name}</Text>
+                      <Text
+                        style={styles.welcome}
+                        onPress={() => {
+                          Linking.openURL(
+                            "tel:`${filteredPlaces.display_phone}`"
+                          );
+                        }}
+                      >
+                        {filteredPlaces.display_phone}
+                      </Text>
+                      <Text style={styles.welcome}>
+                        {filteredPlaces.location.display_address[0]}
+                      </Text>
+                      <Text style={styles.welcome}>
+                        {filteredPlaces.location.display_address[1]}
+                      </Text>
+                      <Text style={styles.welcome}>
+                        {filteredPlaces.location.display_address[2]}
+                      </Text>
+                      <Text style={styles.welcome}>
+                        Rating: {filteredPlaces.rating}/5
+                      </Text>
+                      <View
+                        style={{
+                          width: "100%",
+                          borderBottomColor: "black",
+                          borderBottomWidth: 1,
+                          textAlign: "center",
+                          justifyContent: "center",
+                        }}
+                      />
+                    </View>
+                  ))}
+              </View>
+              <StatusBar style="auto" />
+            </ImageBackground>
           </View>
-          <StatusBar style="auto" />
-        </View>
-      </SafeAreaView>
+        </SafeAreaView>
+      </>
     );
   }
 }
@@ -231,6 +245,12 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: "center",
+    justifyContent: "center",
+  },
+  img: {
+    textAlign: "center",
+    height: "100%",
+    width: "100%",
     justifyContent: "center",
   },
 });
