@@ -4,7 +4,7 @@ import config from "./config.js";
 import axios from "axios";
 import {
   Alert,
-  Button,
+  Animated,
   Linking,
   SafeAreaView,
   StyleSheet,
@@ -145,7 +145,10 @@ export default class App extends Component {
               <View style={styles.logoContainer}>
                 <Image source={golfBall} style={styles.logo} alt="Logo" />
               </View>
-              <TouchableOpacity onPress={this.getForeCast}>
+              <TouchableOpacity
+                style={styles.touchableOpacity}
+                onPress={this.getForeCast}
+              >
                 <Text style={styles.welcome}>Fore-Cast</Text>
               </TouchableOpacity>
               <Text style={styles.welcome}>
@@ -188,6 +191,7 @@ export default class App extends Component {
                   justifyContent: "center",
                 }}
               />
+              {/* These Are The Filtered Golf Locations */}
               <View>
                 {this.state.placesToGolf
                   .filter((place) => place)
@@ -241,7 +245,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   safeArea: {
-    // flex: 1,
+    height: "100%",
   },
   container: {
     flex: 1,
@@ -250,13 +254,28 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logoContainer: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
     paddingBottom: "50px",
     paddingTop: "50px",
   },
+  touchableOpacity: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: "50%",
+    height: "50px",
+    marginLeft: "25%",
+    marginBottom: "20px",
+    backgroundColor: "#009688",
+    borderRadius: 10,
+  },
   welcome: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    justifyContent: "center",
+  },
+  title: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
@@ -274,4 +293,17 @@ const styles = StyleSheet.create({
     width: "200px",
     justifyContent: "center",
   },
+  // @media (prefers-reduced-motion: no-preference) {
+  //   .App-logo {
+  //     animation: App-logo-spin infinite 20s linear;
+  //   }
+  // }
+  // @keyframes App-logo-spin {
+  //   from {
+  //     transform: rotate(0deg);
+  //   }
+  //   to {
+  //     transform: rotate(360deg);
+  //   }
+  // }
 });
