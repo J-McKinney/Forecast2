@@ -1,0 +1,7 @@
+{
+  "display": "standalone",
+  "lang": "en",
+  "name": "fore-cast",
+  "short_name": "fore-cast",
+  "start_url": "/?utm_source=web_app_manifest"
+}
