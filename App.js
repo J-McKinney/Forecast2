@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import config from "./config.js";
 import axios from "axios";
 import {
-  ActivityIndicator,
+  // ActivityIndicator,
   Alert,
-  Animated,
-  Easing,
+  // Animated,
+  // Easing,
   Linking,
   Platform,
   SafeAreaView,
