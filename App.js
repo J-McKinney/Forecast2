@@ -3,8 +3,10 @@ import React, { Component } from "react";
 import config from "./config.js";
 import axios from "axios";
 import {
+  ActivityIndicator,
   Alert,
   Animated,
+  Easing,
   Linking,
   Platform,
   SafeAreaView,
@@ -17,7 +19,6 @@ import {
 } from "react-native";
 import golfCourse from "./assets/golf2.png";
 import golfBall from "./assets/golfBall.svg";
-import { releaseChannel } from "expo-updates";
 
 export default class App extends Component {
   state = {
@@ -57,6 +58,10 @@ export default class App extends Component {
         maximumAge: 100000,
       }
     );
+  }
+
+  componentDidUpdate() {
+    console.log("Updated");
   }
 
   // OpenWeather API
@@ -147,7 +152,8 @@ export default class App extends Component {
               imageStyle={{ resizeMode: "repeat" }}
             >
               <View style={styles.logoContainer}>
-                <Image source={golfBall} style={styles.logo} alt="Logo" />
+                {/* <Image source={golfBall} style={styles.logo} alt="Logo" /> */}
+                <ActivityIndicator source={golfBall} style={styles.logo} alt="Logo" />
               </View>
               <TouchableOpacity
                 style={styles.touchableOpacity}
@@ -207,11 +213,6 @@ export default class App extends Component {
                       <Text
                         style={styles.welcome}
                         onPress={() => {
-                          // Linking.openURL(
-                          //   // "tel:`${filteredPlaces.display_phone}`"
-                          //   `tel:${filteredPlaces.display_phone}`
-                          // );
-                          ///////////////////////////////////////////////////////
                           if (this.state.platform === "android" || "web") {
                             Linking.openURL(
                               `tel:${filteredPlaces.display_phone}`
@@ -230,10 +231,6 @@ export default class App extends Component {
                         onPress={() => {
                           let lat = filteredPlaces.coordinates.latitude;
                           let lon = filteredPlaces.coordinates.longitude;
-                          console.log(filteredPlaces);
-                          // console.log("Latitude: " + lat);
-                          // console.log("Longitude: " + lon);
-                          ///////////////////////////////////////////////////////////
                           if (this.state.platform === "android" || "web") {
                             Linking.openURL(
                               `https://www.google.com/maps/dir/?api=1&origin=` +
@@ -346,6 +343,7 @@ const styles = StyleSheet.create({
     height: "200px",
     width: "200px",
     justifyContent: "center",
+    // transform: [{ rotate: "45deg" }],
   },
   // @media (prefers-reduced-motion: no-preference) {
   //   .App-logo {
