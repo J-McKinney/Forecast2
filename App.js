@@ -59,7 +59,7 @@ export default class App extends Component {
   }
 
   componentDidUpdate() {
-    console.log("Updated");
+    // console.log("Updated");
     // console.log(Animated);
   }
 
