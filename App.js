@@ -17,6 +17,7 @@ import {
 } from "react-native";
 import golfCourse from "./assets/golf2.png";
 import golfBall from "./assets/golfBall.svg";
+import { releaseChannel } from "expo-updates";
 
 export default class App extends Component {
   state = {
@@ -58,13 +59,9 @@ export default class App extends Component {
     );
   }
 
-  // componentDidUpdate() {
-  //   console.log(this.state.platform);
-  // }
-
+  // OpenWeather API
   getForeCast = (e) => {
     e.preventDefault();
-    // OpenWeather API
     if (this.state.myLat !== "undefined") {
       const weatherAPI =
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
@@ -206,48 +203,39 @@ export default class App extends Component {
                     <View key={filteredPlaces.id}>
                       <View style={{ height: "20px" }} />
                       <Text style={styles.welcome}>{filteredPlaces.name}</Text>
+                      <View style={{ height: "20px" }} />
                       <Text
                         style={styles.welcome}
                         onPress={() => {
-                          Linking.openURL(
-                            // "tel:`${filteredPlaces.display_phone}`"
-                            `tel:${filteredPlaces.display_phone}`
-                          );
+                          // Linking.openURL(
+                          //   // "tel:`${filteredPlaces.display_phone}`"
+                          //   `tel:${filteredPlaces.display_phone}`
+                          // );
                           ///////////////////////////////////////////////////////
-                          // if (this.state.platform === "android" || "web") {
-                          //   Linking.openURL(
-                          //     "tel:`${filteredPlaces.display_phone}`"
-                          //   );
-                          // } else {
-                          //   ("telprompt:`${filteredPlaces.display_phone}`");
-                          // }
-                          ////////////////////////////////////////////////////////
-                          // if (Platform.OS === "android") {
-                          //   Linking.openURL(
-                          //     "tel:`${filteredPlaces.display_phone}`"
-                          //   );
-                          // } else if (Platform.OS === "web") {
-                          //   Linking.openURL(
-                          //     "tel:`${filteredPlaces.display_phone}`"
-                          //   );
-                          // } else {
-                          //   Linking.openURL(
-                          //     "telprompt:`${filteredPlaces.display_phone}`"
-                          //   );
-                          // }
+                          if (this.state.platform === "android" || "web") {
+                            Linking.openURL(
+                              `tel:${filteredPlaces.display_phone}`
+                            );
+                          } else {
+                            `telprompt:${filteredPlaces.display_phone}`;
+                          }
                         }}
                       >
                         {filteredPlaces.display_phone}
                       </Text>
-                      <Text style={styles.welcome}>
-                        {filteredPlaces.location.display_address[0]}
-                      </Text>
-                      <Text style={styles.welcome}>
-                        {filteredPlaces.location.display_address[1]}
-                      </Text>
-                      <Text style={styles.welcome}>
-                        {filteredPlaces.location.display_address[2]}
-                      </Text>
+                      <View style={{ height: "20px" }} />
+                      <TouchableOpacity>
+                        <Text style={styles.welcome}>
+                          {filteredPlaces.location.display_address[0]}
+                        </Text>
+                        <Text style={styles.welcome}>
+                          {filteredPlaces.location.display_address[1]}
+                        </Text>
+                        <Text style={styles.welcome}>
+                          {filteredPlaces.location.display_address[2]}
+                        </Text>
+                        <View style={{ height: "20px" }} />
+                      </TouchableOpacity>
                       <Text style={styles.welcome}>
                         Rating: {filteredPlaces.rating}/5
                       </Text>
