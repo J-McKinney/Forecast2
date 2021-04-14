@@ -224,7 +224,28 @@ export default class App extends Component {
                         {filteredPlaces.display_phone}
                       </Text>
                       <View style={{ height: "20px" }} />
-                      <TouchableOpacity>
+                      <TouchableOpacity
+                        onPress={() => {
+                          let lat = filteredPlaces.coordinates.latitude;
+                          let lon = filteredPlaces.coordinates.longitude;
+                          console.log(filteredPlaces)
+                          // console.log("Latitude: " + lat);
+                          // console.log("Longitude: " + lon);
+                          // Google https://www.google.com/maps/@33.9290976,-84.4697653,15z
+                          // https://www.google.com/maps/dir//Legacy+Golf+Links+%26+Driving+Range,+1825+Windy+Hill+Rd+SE,+Smyrna,+GA+30080/@33.896404,-84.5353519,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88f5111e27082ae5:0xea14a71b0e0f5df0!2m2!1d-84.500333!2d33.896404
+                          // https://www.google.com/maps/dir//Marietta+Country+Club,+1400+Marietta+Country+Club+Dr+NW,+Kennesaw,+GA+30152/@33.9665246,-84.5469463,13z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x88f53e3a2f35625f:0x92d12f6447eb223c!3e0
+                          // Apple http://maps.apple.com/?ll=37.484847,-122.148386
+                          // 1400 Marietta Country Club Dr
+                          ///////////////////////////////////////////////////////////
+                          // if (this.state.platform === "android" || "web") {
+                          //   Linking.openURL(
+                          //     `https://www.google.com/maps/dir//` + lat + `,` + lon
+                          //   );
+                          // } else {
+                          //   `https://www.amazon.com`;
+                          // }
+                        }}
+                      >
                         <Text style={styles.welcome}>
                           {filteredPlaces.location.display_address[0]}
                         </Text>
