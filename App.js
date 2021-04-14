@@ -152,8 +152,8 @@ export default class App extends Component {
               imageStyle={{ resizeMode: "repeat" }}
             >
               <View style={styles.logoContainer}>
-                {/* <Image source={golfBall} style={styles.logo} alt="Logo" /> */}
-                <ActivityIndicator source={golfBall} style={styles.logo} alt="Logo" />
+                <Image source={golfBall} style={styles.logo} alt="Logo" />
+                {/* <ActivityIndicator source={golfBall} style={styles.logo} alt="Logo" /> */}
               </View>
               <TouchableOpacity
                 style={styles.touchableOpacity}
