@@ -60,6 +60,7 @@ export default class App extends Component {
 
   componentDidUpdate() {
     console.log("Updated");
+    // console.log(Animated);
   }
 
   // OpenWeather API
@@ -151,7 +152,11 @@ export default class App extends Component {
             >
               <View style={styles.logoContainer}>
                 <Image source={golfBall} style={styles.logo} alt="Logo" />
-                {/* <ActivityIndicator source={golfBall} style={styles.logo} alt="Logo" /> */}
+                {/* <Animated.Image
+                  source={golfBall}
+                  style={styles.logo}
+                  alt="Logo"
+                /> */}
               </View>
               <TouchableOpacity
                 style={styles.touchableOpacity}
