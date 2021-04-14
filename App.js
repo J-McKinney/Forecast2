@@ -22,8 +22,6 @@ import golfBall from "./assets/golfBall.svg";
 
 export default class App extends Component {
   state = {
-    // location: null,
-    // location: [],
     myLat: "",
     myLon: "",
     city: "",
@@ -343,19 +341,5 @@ const styles = StyleSheet.create({
     height: "200px",
     width: "200px",
     justifyContent: "center",
-    // transform: [{ rotate: "45deg" }],
   },
-  // @media (prefers-reduced-motion: no-preference) {
-  //   .App-logo {
-  //     animation: App-logo-spin infinite 20s linear;
-  //   }
-  // }
-  // @keyframes App-logo-spin {
-  //   from {
-  //     transform: rotate(0deg);
-  //   }
-  //   to {
-  //     transform: rotate(360deg);
-  //   }
-  // }
 });
