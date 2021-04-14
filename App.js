@@ -209,17 +209,18 @@ export default class App extends Component {
                       <Text
                         style={styles.welcome}
                         onPress={() => {
-                          // Linking.openURL(
-                          //   "tel:`${filteredPlaces.display_phone}`"
-                          // );
+                          Linking.openURL(
+                            // "tel:`${filteredPlaces.display_phone}`"
+                            `tel:${filteredPlaces.display_phone}`
+                          );
                           ///////////////////////////////////////////////////////
-                          if (this.state.platform === "android" || "web") {
-                            Linking.openURL(
-                              "tel:`${filteredPlaces.display_phone}`"
-                            );
-                          } else {
-                            ("telprompt:`${filteredPlaces.display_phone}`");
-                          }
+                          // if (this.state.platform === "android" || "web") {
+                          //   Linking.openURL(
+                          //     "tel:`${filteredPlaces.display_phone}`"
+                          //   );
+                          // } else {
+                          //   ("telprompt:`${filteredPlaces.display_phone}`");
+                          // }
                           ////////////////////////////////////////////////////////
                           // if (Platform.OS === "android") {
                           //   Linking.openURL(
@@ -234,20 +235,9 @@ export default class App extends Component {
                           //     "telprompt:`${filteredPlaces.display_phone}`"
                           //   );
                           // }
-                          //////////////////////////////////////////////////////
-                          // Linking.openURL(
-                          //   Platform.OS
-                          //     ? "android"
-                          //     : "tel:`${filteredPlaces.display_phone}`"
-                          //     ? "web"
-                          //     : "tel:`${filteredPlaces.display_phone}`"
-                          //     ? !"android"
-                          //     : "telprompt`${filteredPlaces.display_phone}`"
-                          // );
                         }}
                       >
                         {filteredPlaces.display_phone}
-                        {console.log(Platform)}
                       </Text>
                       <Text style={styles.welcome}>
                         {filteredPlaces.location.display_address[0]}
