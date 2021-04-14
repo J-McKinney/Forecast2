@@ -1,21 +1,21 @@
 {
   "files": {
-    "app.js": "/Forecast2/static/js/app.8bd28707.chunk.js",
-    "app.js.map": "/Forecast2/static/js/app.8bd28707.chunk.js.map",
+    "app.js": "/Forecast2/static/js/app.7fad01bd.chunk.js",
+    "app.js.map": "/Forecast2/static/js/app.7fad01bd.chunk.js.map",
     "runtime~app.js": "/Forecast2/static/js/runtime~app.712bc226.js",
     "runtime~app.js.map": "/Forecast2/static/js/runtime~app.712bc226.js.map",
-    "static/js/2.bded84e2.chunk.js": "/Forecast2/static/js/2.bded84e2.chunk.js",
-    "static/js/2.bded84e2.chunk.js.map": "/Forecast2/static/js/2.bded84e2.chunk.js.map",
+    "static/js/2.862440cc.chunk.js": "/Forecast2/static/js/2.862440cc.chunk.js",
+    "static/js/2.862440cc.chunk.js.map": "/Forecast2/static/js/2.862440cc.chunk.js.map",
     "index.html": "/Forecast2/index.html",
     "manifest.json": "/Forecast2/manifest.json",
     "serve.json": "/Forecast2/serve.json",
-    "static/js/2.bded84e2.chunk.js.LICENSE.txt": "/Forecast2/static/js/2.bded84e2.chunk.js.LICENSE.txt",
+    "static/js/2.862440cc.chunk.js.LICENSE.txt": "/Forecast2/static/js/2.862440cc.chunk.js.LICENSE.txt",
     "static/media/golf2.png": "/Forecast2/static/media/golf2.4e67ef83.png",
     "static/media/golfBall.svg": "/Forecast2/static/media/golfBall.4daa5f5c.svg"
   },
   "entrypoints": [
     "static/js/runtime~app.712bc226.js",
-    "static/js/2.bded84e2.chunk.js",
-    "static/js/app.8bd28707.chunk.js"
+    "static/js/2.862440cc.chunk.js",
+    "static/js/app.7fad01bd.chunk.js"
   ]
 }
