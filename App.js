@@ -228,7 +228,7 @@ export default class App extends Component {
                         onPress={() => {
                           let lat = filteredPlaces.coordinates.latitude;
                           let lon = filteredPlaces.coordinates.longitude;
-                          console.log(filteredPlaces)
+                          console.log(filteredPlaces);
                           // console.log("Latitude: " + lat);
                           // console.log("Longitude: " + lon);
                           // Google https://www.google.com/maps/@33.9290976,-84.4697653,15z
@@ -237,13 +237,22 @@ export default class App extends Component {
                           // Apple http://maps.apple.com/?ll=37.484847,-122.148386
                           // 1400 Marietta Country Club Dr
                           ///////////////////////////////////////////////////////////
-                          // if (this.state.platform === "android" || "web") {
-                          //   Linking.openURL(
-                          //     `https://www.google.com/maps/dir//` + lat + `,` + lon
-                          //   );
-                          // } else {
-                          //   `https://www.amazon.com`;
-                          // }
+                          if (this.state.platform === "android" || "web") {
+                            Linking.openURL(
+                              // `https://www.google.com/maps/dir//` + lat + `,` + lon
+                              `https://www.google.com/maps/dir/?api=1&origin=` +
+                                this.state.myLat +
+                                `,` +
+                                this.state.myLon +
+                                `&destination=` +
+                                lat +
+                                `,` +
+                                lon +
+                                `&travelmode=driving`
+                            );
+                          } else {
+                            `https://www.google.com`;
+                          }
                         }}
                       >
                         <Text style={styles.welcome}>
