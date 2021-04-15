@@ -147,7 +147,7 @@ export default class App extends Component {
           <View style={styles.container}>
             <ImageBackground
               source={golfCourse}
-              style={styles.img}
+              style={styles.backgroungImg}
               imageStyle={{ resizeMode: "repeat" }}
             >
               <View style={styles.logoContainer}>
@@ -159,10 +159,10 @@ export default class App extends Component {
                 /> */}
               </View>
               <TouchableOpacity
-                style={styles.touchableOpacity}
+                style={styles.touchableOpacityButton}
                 onPress={this.getForeCast}
               >
-                <Text style={styles.welcome}>Fore-Cast</Text>
+                <Text style={styles.forecastButton}>Fore-Cast</Text>
               </TouchableOpacity>
               <Text style={styles.welcome}>
                 Temp: {this.state.temp} Fehrenheit
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     paddingBottom: "50px",
     paddingTop: "50px",
   },
-  touchableOpacity: {
+  touchableOpacityButton: {
     alignItems: "center",
     justifyContent: "center",
     width: "50%",
@@ -322,6 +322,16 @@ const styles = StyleSheet.create({
     marginBottom: "20px",
     backgroundColor: "#009688",
     borderRadius: 10,
+    // shadowOffset: "100",
+    // shadowColor: "black",
+    // shadowRadius: "50%",
+    // shadowOpacity: "1",
+  },
+  forecastButton: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    justifyContent: "center",
   },
   welcome: {
     fontSize: 20,
@@ -335,7 +345,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
   },
-  img: {
+  backgroungImg: {
     textAlign: "center",
     height: "100%",
     width: "100%",
