@@ -1,21 +1,37 @@
 {
   "files": {
-    "app.js": "/Forecast2/static/js/app.61b7962a.chunk.js",
-    "app.js.map": "/Forecast2/static/js/app.61b7962a.chunk.js.map",
+    "app.js": "/Forecast2/static/js/app.71cc8fb7.chunk.js",
+    "app.js.map": "/Forecast2/static/js/app.71cc8fb7.chunk.js.map",
     "runtime~app.js": "/Forecast2/static/js/runtime~app.712bc226.js",
     "runtime~app.js.map": "/Forecast2/static/js/runtime~app.712bc226.js.map",
-    "static/js/2.aff66801.chunk.js": "/Forecast2/static/js/2.aff66801.chunk.js",
-    "static/js/2.aff66801.chunk.js.map": "/Forecast2/static/js/2.aff66801.chunk.js.map",
+    "static/js/2.d8485c2e.chunk.js": "/Forecast2/static/js/2.d8485c2e.chunk.js",
+    "static/js/2.d8485c2e.chunk.js.map": "/Forecast2/static/js/2.d8485c2e.chunk.js.map",
+    "fonts/AntDesign.ttf": "/Forecast2/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/Forecast2/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/Forecast2/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/Forecast2/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/Forecast2/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/Forecast2/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/Forecast2/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/Forecast2/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/Forecast2/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/Forecast2/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/Forecast2/./fonts/MaterialIcons.ttf",
+    "fonts/SimpleLineIcons.ttf": "/Forecast2/./fonts/SimpleLineIcons.ttf",
     "index.html": "/Forecast2/index.html",
     "manifest.json": "/Forecast2/manifest.json",
     "serve.json": "/Forecast2/serve.json",
-    "static/js/2.aff66801.chunk.js.LICENSE.txt": "/Forecast2/static/js/2.aff66801.chunk.js.LICENSE.txt",
+    "static/js/2.d8485c2e.chunk.js.LICENSE.txt": "/Forecast2/static/js/2.d8485c2e.chunk.js.LICENSE.txt",
+    "static/media/bell.png": "/Forecast2/static/media/bell.cf04af27.png",
     "static/media/golf2.png": "/Forecast2/static/media/golf2.4e67ef83.png",
-    "static/media/golfBall.svg": "/Forecast2/static/media/golfBall.4daa5f5c.svg"
+    "static/media/golfBall.svg": "/Forecast2/static/media/golfBall.4daa5f5c.svg",
+    "static/media/heart.png": "/Forecast2/static/media/heart.23b5c2c0.png",
+    "static/media/rocket.png": "/Forecast2/static/media/rocket.d2f3bf41.png",
+    "static/media/star.png": "/Forecast2/static/media/star.69c71386.png"
   },
   "entrypoints": [
     "static/js/runtime~app.712bc226.js",
-    "static/js/2.aff66801.chunk.js",
-    "static/js/app.61b7962a.chunk.js"
+    "static/js/2.d8485c2e.chunk.js",
+    "static/js/app.71cc8fb7.chunk.js"
   ]
 }
