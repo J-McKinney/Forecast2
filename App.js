@@ -17,6 +17,7 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
+import { Button, Card, Rating } from "react-native-elements";
 import golfCourse from "./assets/golf2.png";
 import golfBall from "./assets/golfBall.svg";
 
@@ -58,10 +59,7 @@ export default class App extends Component {
     );
   }
 
-  componentDidUpdate() {
-    // console.log("Updated");
-    // console.log(Animated);
-  }
+  componentDidUpdate() {}
 
   // OpenWeather API
   getForeCast = (e) => {
@@ -210,81 +208,83 @@ export default class App extends Component {
                   .filter((place) => place)
                   .map((filteredPlaces) => (
                     <View key={filteredPlaces.id}>
-                      <View style={{ height: "20px" }} />
-                      <Text style={styles.welcome}>{filteredPlaces.name}</Text>
-                      <View style={{ height: "20px" }} />
-                      <Text
-                        style={styles.welcome}
-                        onPress={() => {
-                          if (this.state.platform === "android" || "web") {
-                            Linking.openURL(
-                              `tel:${filteredPlaces.display_phone}`
-                            );
-                          } else {
-                            Linking.openURL(
-                              `telprompt:${filteredPlaces.display_phone}`
-                            );
-                          }
-                        }}
-                      >
-                        {filteredPlaces.display_phone}
-                      </Text>
-                      <View style={{ height: "20px" }} />
-                      <TouchableOpacity
-                        onPress={() => {
-                          let lat = filteredPlaces.coordinates.latitude;
-                          let lon = filteredPlaces.coordinates.longitude;
-                          if (this.state.platform === "android" || "web") {
-                            Linking.openURL(
-                              `https://www.google.com/maps/dir/?api=1&origin=` +
-                                this.state.myLat +
-                                `,` +
-                                this.state.myLon +
-                                `&destination=` +
-                                lat +
-                                `,` +
-                                lon +
-                                `&travelmode=driving`
-                            );
-                          } else {
-                            Linking.openURL(
-                              `https://www.google.com/maps/dir/?api=1&origin=` +
-                                this.state.myLat +
-                                `,` +
-                                this.state.myLon +
-                                `&destination=` +
-                                lat +
-                                `,` +
-                                lon +
-                                `&travelmode=driving`
-                            );
-                          }
-                        }}
-                      >
-                        <Text style={styles.welcome}>
-                          {filteredPlaces.location.display_address[0]}
-                        </Text>
-                        <Text style={styles.welcome}>
-                          {filteredPlaces.location.display_address[1]}
-                        </Text>
-                        <Text style={styles.welcome}>
-                          {filteredPlaces.location.display_address[2]}
-                        </Text>
+                      <Card style={styles.filteredCard}>
+                        <Card.Title style={styles.welcome}>
+                          {filteredPlaces.name}
+                        </Card.Title>
                         <View style={{ height: "20px" }} />
-                      </TouchableOpacity>
-                      <Text style={styles.welcome}>
-                        Rating: {filteredPlaces.rating}/5
-                      </Text>
-                      <View style={{ height: "20px" }} />
-                      <View
-                        style={{
-                          width: "100%",
-                          borderBottomColor: "black",
-                          borderBottomWidth: 1,
-                          textAlign: "center",
-                          justifyContent: "center",
-                        }}
-                      />
+                        <TouchableOpacity style={styles.touchableOpacityPhone}>
+                          <Text
+                            style={styles.welcome}
+                            onPress={() => {
+                              if (this.state.platform === "android" || "web") {
+                                Linking.openURL(
+                                  `tel:${filteredPlaces.display_phone}`
+                                );
+                              } else {
+                                Linking.openURL(
+                                  `telprompt:${filteredPlaces.display_phone}`
+                                );
+                              }
+                            }}
+                          >
+                            {filteredPlaces.display_phone}
+                          </Text>
+                        </TouchableOpacity>
+                        <View style={{ height: "20px" }} />
+                        <TouchableOpacity style={styles.touchableOpacityCard}>
+                          <TouchableOpacity
+                            onPress={() => {
+                              let lat = filteredPlaces.coordinates.latitude;
+                              let lon = filteredPlaces.coordinates.longitude;
+                              if (this.state.platform === "android" || "web") {
+                                Linking.openURL(
+                                  `https://www.google.com/maps/dir/?api=1&origin=` +
+                                    this.state.myLat +
+                                    `,` +
+                                    this.state.myLon +
+                                    `&destination=` +
+                                    lat +
+                                    `,` +
+                                    lon +
+                                    `&travelmode=driving`
+                                );
+                              } else {
+                                Linking.openURL(
+                                  `https://www.google.com/maps/dir/?api=1&origin=` +
+                                    this.state.myLat +
+                                    `,` +
+                                    this.state.myLon +
+                                    `&destination=` +
+                                    lat +
+                                    `,` +
+                                    lon +
+                                    `&travelmode=driving`
+                                );
+                              }
+                            }}
+                          >
+                            <Text style={styles.welcome}>
+                              {filteredPlaces.location.display_address[0]}
+                            </Text>
+                            <Text style={styles.welcome}>
+                              {filteredPlaces.location.display_address[1]}
+                            </Text>
+                            <Text style={styles.welcome}>
+                              {filteredPlaces.location.display_address[2]}
+                            </Text>
+                            <View style={{ height: "20px" }} />
+                          </TouchableOpacity>
+                        </TouchableOpacity>
+                        <Text style={styles.welcome}>Yelp Rating:</Text>
+                        <View style={{ height: "10px" }} />
+                        <Rating
+                          type="star"
+                          ratingCount={5}
+                          startingValue={filteredPlaces.rating}
+                        />
+                        <View style={{ height: "20px" }} />
+                      </Card>
                     </View>
                   ))}
               </View>
@@ -313,6 +313,26 @@ const styles = StyleSheet.create({
     paddingBottom: "50px",
     paddingTop: "50px",
   },
+  touchableOpacityCard: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: "80%",
+    height: "auto",
+    marginLeft: "10%",
+    paddingTop: "10px",
+    backgroundColor: "#009688",
+    borderRadius: 10,
+  },
+  touchableOpacityPhone: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: "80%",
+    height: "auto",
+    marginLeft: "10%",
+    paddingBottom: "8px",
+    backgroundColor: "#009688",
+    borderRadius: 10,
+  },
   touchableOpacityButton: {
     alignItems: "center",
     justifyContent: "center",
@@ -337,6 +357,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
+    justifyContent: "center",
+  },
+  filteredCard: {
+    alignItems: "center",
     justifyContent: "center",
   },
   title: {
