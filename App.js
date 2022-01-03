@@ -111,8 +111,9 @@ export default class App extends Component {
       console.log("Something Went Wrong?");
     }
     const yelpAPI = axios.get(
+      `${"https://corsanywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
       // `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
-      `${"https://cors.bridged.cc/"}https://api.yelp.com/v3/businesses/search`,
+      // `${"https://cors.bridged.cc/"}https://api.yelp.com/v3/businesses/search`,
       {
         headers: {
           Authorization: `Bearer ${config.YELP_KEY}`,
