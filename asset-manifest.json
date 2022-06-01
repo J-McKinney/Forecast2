@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/Forecast2/static/js/app.1f2f365f.chunk.js",
-    "app.js.map": "/Forecast2/static/js/app.1f2f365f.chunk.js.map",
+    "app.js": "/Forecast2/static/js/app.b98d970f.chunk.js",
+    "app.js.map": "/Forecast2/static/js/app.b98d970f.chunk.js.map",
     "runtime~app.js": "/Forecast2/static/js/runtime~app.712bc226.js",
     "runtime~app.js.map": "/Forecast2/static/js/runtime~app.712bc226.js.map",
-    "static/js/2.e8d3d88e.chunk.js": "/Forecast2/static/js/2.e8d3d88e.chunk.js",
-    "static/js/2.e8d3d88e.chunk.js.map": "/Forecast2/static/js/2.e8d3d88e.chunk.js.map",
+    "static/js/2.bd4348f6.chunk.js": "/Forecast2/static/js/2.bd4348f6.chunk.js",
+    "static/js/2.bd4348f6.chunk.js.map": "/Forecast2/static/js/2.bd4348f6.chunk.js.map",
     "fonts/AntDesign.ttf": "/Forecast2/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/Forecast2/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/Forecast2/./fonts/Feather.ttf",
@@ -21,7 +21,7 @@
     "index.html": "/Forecast2/index.html",
     "manifest.json": "/Forecast2/manifest.json",
     "serve.json": "/Forecast2/serve.json",
-    "static/js/2.e8d3d88e.chunk.js.LICENSE.txt": "/Forecast2/static/js/2.e8d3d88e.chunk.js.LICENSE.txt",
+    "static/js/2.bd4348f6.chunk.js.LICENSE.txt": "/Forecast2/static/js/2.bd4348f6.chunk.js.LICENSE.txt",
     "static/media/bell.png": "/Forecast2/static/media/bell.cf04af27.png",
     "static/media/golf2.png": "/Forecast2/static/media/golf2.4e67ef83.png",
     "static/media/golfBall.svg": "/Forecast2/static/media/golfBall.4daa5f5c.svg",
@@ -31,7 +31,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.712bc226.js",
-    "static/js/2.e8d3d88e.chunk.js",
-    "static/js/app.1f2f365f.chunk.js"
+    "static/js/2.bd4348f6.chunk.js",
+    "static/js/app.b98d970f.chunk.js"
   ]
 }
