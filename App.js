@@ -26,6 +26,7 @@ export default class App extends Component {
     state: "",
     zip: "",
     weatherDescription: "",
+    futureWeather: "",
     temp: "",
     humidity: "",
     windSpeed: "",
@@ -75,8 +76,11 @@ export default class App extends Component {
           this.setState({
             temp: res.data.current.temp + "° Fehrenheit",
             humidity: res.data.current.humidity + "%",
-            weatherDescription: res.data.current.weather[0].description,
+            weatherDescription:
+              res.data.current.weather[0].description.toUpperCase(),
             windSpeed: res.data.current.wind_speed + "/mph",
+            futureWeather:
+              res.data.daily[0].weather[0].description.toUpperCase(),
           });
           return axios.get(weatherAPI);
         })
@@ -90,13 +94,9 @@ export default class App extends Component {
         "," +
         this.state.myLon +
         "&key=AIzaSyCANJ80ZERHp5HlMHbV1la0mQ5l7_a7DaI";
-      // "&key=" +
-      // config.GOOGLE_KEY;
-      // console.log(reverseGeocoding);
       axios
         .get(reverseGeocoding)
         .then((res) => {
-          // console.log(res.data)
           this.setState({
             city: res.data.results[0].address_components[2].long_name,
             state: res.data.results[0].address_components[4].short_name,
@@ -132,6 +132,7 @@ export default class App extends Component {
     );
     return yelpAPI
       .then((res) => {
+        console.log(res);
         this.setState({ placesToGolf: res.data.businesses });
       })
       .catch((error) => {
@@ -143,6 +144,7 @@ export default class App extends Component {
     return (
       <>
         <SafeAreaView style={styles.safeArea}>
+          <StatusBar style="auto" />
           <View style={styles.container}>
             <ImageBackground
               source={golfCourse}
@@ -158,15 +160,17 @@ export default class App extends Component {
               >
                 <Text style={styles.forecastButton}>Fore-Cast</Text>
               </TouchableOpacity>
-              <Text style={styles.view}>
-                Temp: {this.state.temp}
-              </Text>
+              <Text style={styles.view}>Temp: {this.state.temp}</Text>
               <Text style={styles.view}>Humidity: {this.state.humidity}</Text>
               <Text style={styles.view}>
                 Wind Speed: {this.state.windSpeed}
               </Text>
+              {/* <Text style={styles.view}>Forecast</Text> */}
               <Text style={styles.view}>
-                Forecast: {this.state.weatherDescription}
+                Current Forecast: {this.state.weatherDescription}
+              </Text>
+              <Text style={styles.view}>
+                Afternoon Forecast: {this.state.futureWeather}
               </Text>
               <Text style={styles.view}>
                 Your Location:
@@ -283,7 +287,6 @@ export default class App extends Component {
                     </View>
                   ))}
               </View>
-              <StatusBar style="auto" />
             </ImageBackground>
           </View>
         </SafeAreaView>
@@ -360,6 +363,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
     backgroundColor: "#ffffff",
+    paddingBottom: "10px",
   },
   filteredCard: {
     alignItems: "center",
