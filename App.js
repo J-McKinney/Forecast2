@@ -57,10 +57,7 @@ export default class App extends Component {
     );
   }
 
-  componentDidUpdate() {
-    console.log(this.state.platform);
-    alert("platform " + this.state.platform);
-  }
+  componentDidUpdate() {}
 
   // OpenWeather API
   getForeCast = (e) => {
@@ -135,10 +132,6 @@ export default class App extends Component {
     );
     return yelpAPI
       .then((res) => {
-        console.log(this.state.myLat);
-        console.log(this.state.myLon);
-        console.log("businesses");
-        console.log(res.data.businesses[0]);
         this.setState({ placesToGolf: res.data.businesses });
       })
       .catch((error) => {
