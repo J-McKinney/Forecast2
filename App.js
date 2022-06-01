@@ -280,6 +280,7 @@ export default class App extends Component {
                         <Rating
                           type="star"
                           ratingCount={5}
+                          showReadOnlyText="true"
                           startingValue={filteredPlaces.rating}
                         />
                         <View style={{ height: "20px" }} />
