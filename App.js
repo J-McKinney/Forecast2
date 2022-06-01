@@ -3,10 +3,7 @@ import React, { Component } from "react";
 import config from "./config.js";
 import axios from "axios";
 import {
-  // ActivityIndicator,
   Alert,
-  // Animated,
-  // Easing,
   Linking,
   Platform,
   SafeAreaView,
@@ -17,7 +14,7 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-import { Button, Card, Rating } from "react-native-elements";
+import { Card, Rating } from "react-native-elements";
 import golfCourse from "./assets/golf2.png";
 import golfBall from "./assets/golfBall.svg";
 
@@ -76,10 +73,10 @@ export default class App extends Component {
         .get(weatherAPI)
         .then((res) => {
           this.setState({
-            temp: res.data.current.temp,
-            humidity: res.data.current.humidity,
+            temp: res.data.current.temp + "° Fehrenheit",
+            humidity: res.data.current.humidity + "%",
             weatherDescription: res.data.current.weather[0].description,
-            windSpeed: res.data.current.wind_speed,
+            windSpeed: res.data.current.wind_speed + "/mph",
           });
           return axios.get(weatherAPI);
         })
@@ -92,11 +89,14 @@ export default class App extends Component {
         this.state.myLat +
         "," +
         this.state.myLon +
-        "&key=" +
-        config.GOOGLE_KEY;
+        "&key=AIzaSyCANJ80ZERHp5HlMHbV1la0mQ5l7_a7DaI";
+      // "&key=" +
+      // config.GOOGLE_KEY;
+      // console.log(reverseGeocoding);
       axios
         .get(reverseGeocoding)
         .then((res) => {
+          // console.log(res.data)
           this.setState({
             city: res.data.results[0].address_components[2].long_name,
             state: res.data.results[0].address_components[4].short_name,
@@ -111,8 +111,8 @@ export default class App extends Component {
       console.log("Something Went Wrong?");
     }
     const yelpAPI = axios.get(
-      `${"https://corsanywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
-      // `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
+      `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
+      // `${"https://corsanywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
       // `${"https://cors.bridged.cc/"}https://api.yelp.com/v3/businesses/search`,
       {
         headers: {
@@ -151,11 +151,6 @@ export default class App extends Component {
             >
               <View style={styles.logoContainer}>
                 <Image source={golfBall} style={styles.logo} alt="Logo" />
-                {/* <Animated.Image
-                  source={golfBall}
-                  style={styles.logo}
-                  alt="Logo"
-                /> */}
               </View>
               <TouchableOpacity
                 style={styles.touchableOpacityButton}
@@ -163,19 +158,17 @@ export default class App extends Component {
               >
                 <Text style={styles.forecastButton}>Fore-Cast</Text>
               </TouchableOpacity>
-              <Text style={styles.welcome}>
-                Temp: {this.state.temp} Fehrenheit
+              <Text style={styles.view}>
+                Temp: {this.state.temp}
               </Text>
-              <Text style={styles.welcome}>
-                Humidity: {this.state.humidity}%
+              <Text style={styles.view}>Humidity: {this.state.humidity}</Text>
+              <Text style={styles.view}>
+                Wind Speed: {this.state.windSpeed}
               </Text>
-              <Text style={styles.welcome}>
-                Wind Speed: {this.state.windSpeed}/mph
-              </Text>
-              <Text style={styles.welcome}>
+              <Text style={styles.view}>
                 Forecast: {this.state.weatherDescription}
               </Text>
-              <Text style={styles.welcome}>
+              <Text style={styles.view}>
                 Your Location:
                 {" " +
                   this.state.city +
@@ -193,7 +186,7 @@ export default class App extends Component {
                   justifyContent: "center",
                 }}
               />
-              <Text style={styles.welcome}>Golf Results Closest To You:</Text>
+              <Text style={styles.view}>Golf Results Closest To You:</Text>
               <View
                 style={{
                   width: "100%",
@@ -201,14 +194,15 @@ export default class App extends Component {
                   borderBottomWidth: 1,
                   textAlign: "center",
                   justifyContent: "center",
+                  borderRadius: 20,
                 }}
               />
               {/* These Are The Filtered Golf Locations */}
-              <View>
+              <View style={{ borderRadius: 20 }}>
                 {this.state.placesToGolf
                   .filter((place) => place)
                   .map((filteredPlaces) => (
-                    <View key={filteredPlaces.id}>
+                    <View style={{ borderRadius: 20 }} key={filteredPlaces.id}>
                       <Card style={styles.filteredCard}>
                         <Card.Title style={styles.welcome}>
                           {filteredPlaces.name}
@@ -360,9 +354,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
   },
+  view: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    justifyContent: "center",
+    backgroundColor: "#ffffff",
+  },
   filteredCard: {
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: 20,
   },
   title: {
     fontSize: 20,
@@ -381,5 +383,7 @@ const styles = StyleSheet.create({
     height: "200px",
     width: "200px",
     justifyContent: "center",
+    backgroundColor: "#ffffff",
+    borderRadius: 100,
   },
 });

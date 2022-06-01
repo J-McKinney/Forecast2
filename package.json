@@ -11,7 +11,7 @@
     "predeploy": "expo build:web",
     "deploy": "gh-pages -d web-build"
   },
-  "dependencies": {
+  "dependencies": {    
     "axios": "^0.21.1",
     "expo": "~40.0.0",
     "expo-cli": "^4.3.4",
