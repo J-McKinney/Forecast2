@@ -132,7 +132,10 @@ export default class App extends Component {
     );
     return yelpAPI
       .then((res) => {
-        console.log(res);
+        console.log(this.state.myLat);
+        console.log(this.state.myLon);
+        console.log("businesses");
+        console.log(res.data.businesses[0]);
         this.setState({ placesToGolf: res.data.businesses });
       })
       .catch((error) => {
@@ -212,68 +215,65 @@ export default class App extends Component {
                           {filteredPlaces.name}
                         </Card.Title>
                         <View style={{ height: "20px" }} />
-                        <TouchableOpacity style={styles.touchableOpacityPhone}>
-                          <Text
-                            style={styles.welcome}
-                            onPress={() => {
-                              if (this.state.platform === "android" || "web") {
-                                Linking.openURL(
-                                  `tel:${filteredPlaces.display_phone}`
-                                );
-                              } else {
-                                Linking.openURL(
-                                  `telprompt:${filteredPlaces.display_phone}`
-                                );
-                              }
-                            }}
-                          >
+                        <TouchableOpacity
+                          onPress={() => {
+                            if (this.state.platform === "android" || "web") {
+                              Linking.openURL(
+                                `tel:${filteredPlaces.display_phone}`
+                              );
+                            } else {
+                              Linking.openURL(
+                                `telprompt:${filteredPlaces.display_phone}`
+                              );
+                            }
+                          }}
+                          style={styles.touchableOpacityPhone}
+                        >
+                          <Text style={styles.welcome}>
                             {filteredPlaces.display_phone}
                           </Text>
                         </TouchableOpacity>
                         <View style={{ height: "20px" }} />
-                        <TouchableOpacity style={styles.touchableOpacityCard}>
-                          <TouchableOpacity
-                            onPress={() => {
-                              let lat = filteredPlaces.coordinates.latitude;
-                              let lon = filteredPlaces.coordinates.longitude;
-                              if (this.state.platform === "android" || "web") {
-                                Linking.openURL(
-                                  `https://www.google.com/maps/dir/?api=1&origin=` +
-                                    this.state.myLat +
-                                    `,` +
-                                    this.state.myLon +
-                                    `&destination=` +
-                                    lat +
-                                    `,` +
-                                    lon +
-                                    `&travelmode=driving`
-                                );
-                              } else {
-                                Linking.openURL(
-                                  `https://www.google.com/maps/dir/?api=1&origin=` +
-                                    this.state.myLat +
-                                    `,` +
-                                    this.state.myLon +
-                                    `&destination=` +
-                                    lat +
-                                    `,` +
-                                    lon +
-                                    `&travelmode=driving`
-                                );
-                              }
-                            }}
-                          >
-                            <Text style={styles.welcome}>
-                              {filteredPlaces.location.display_address[0]}
-                            </Text>
-                            <Text style={styles.welcome}>
-                              {filteredPlaces.location.display_address[1]}
-                            </Text>
-                            <Text style={styles.welcome}>
-                              {filteredPlaces.location.display_address[2]}
-                            </Text>
-                            <View style={{ height: "20px" }} />
-                          </TouchableOpacity>
+                        <TouchableOpacity
+                          style={styles.touchableOpacityCard}
+                          onPress={() => {
+                            let address =
+                              filteredPlaces.location.display_address[0];
+                            let district =
+                              filteredPlaces.location.display_address[1];
+                            if (this.state.platform === "android" || "web") {
+                              Linking.openURL(
+                                `https://www.google.com/maps/dir/` +
+                                  this.state.myLat +
+                                  `,` +
+                                  this.state.myLon +
+                                  `/` +
+                                  address +
+                                  district
+                              );
+                            } else {
+                              Linking.openURL(
+                                `https://www.google.com/maps/dir/` +
+                                  this.state.myLat +
+                                  `,` +
+                                  this.state.myLon +
+                                  `/` +
+                                  address +
+                                  district
+                              );
+                            }
+                          }}
+                        >
+                          <Text style={styles.welcome}>
+                            {filteredPlaces.location.display_address[0]}
+                          </Text>
+                          <Text style={styles.welcome}>
+                            {filteredPlaces.location.display_address[1]}
+                          </Text>
+                          <Text style={styles.welcome}>
+                            {filteredPlaces.location.display_address[2]}
+                          </Text>
+                          <View style={{ height: "20px" }} />
                         </TouchableOpacity>
                         <Text style={styles.welcome}>Yelp Rating:</Text>
                         <View style={{ height: "10px" }} />
