@@ -57,7 +57,10 @@ export default class App extends Component {
     );
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    console.log(this.state.platform);
+    alert("platform " + this.state.platform);
+  }
 
   // OpenWeather API
   getForeCast = (e) => {
