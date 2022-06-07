@@ -111,9 +111,8 @@ export default class App extends Component {
       console.log("Something Went Wrong?");
     }
     const yelpAPI = axios.get(
-      `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
-      // `${"https://corsanywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
-      // `${"https://cors.bridged.cc/"}https://api.yelp.com/v3/businesses/search`,
+      // `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
+      `${"https://corsanywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search`,
       {
         headers: {
           Authorization: `Bearer ${config.YELP_KEY}`,
@@ -124,7 +123,6 @@ export default class App extends Component {
           limit: 50,
           radius: 40000,
           sort_by: "distance",
-          // open_now: true,
           latitude: this.state.myLat,
           longitude: this.state.myLon,
         },
@@ -164,7 +162,6 @@ export default class App extends Component {
               <Text style={styles.view}>
                 Wind Speed: {this.state.windSpeed}
               </Text>
-              {/* <Text style={styles.view}>Forecast</Text> */}
               <Text style={styles.view}>
                 Current Forecast: {this.state.weatherDescription}
               </Text>
@@ -207,10 +204,10 @@ export default class App extends Component {
                   .map((filteredPlaces) => (
                     <View style={{ borderRadius: 20 }} key={filteredPlaces.id}>
                       <Card style={styles.filteredCard}>
-                        <Card.Title style={styles.welcome}>
+                        <Card.Title style={styles.filteredPlaces}>
                           {filteredPlaces.name}
                         </Card.Title>
-                        <View style={{ height: "20px" }} />
+                        <Text style={styles.view}>Call Location</Text>
                         <TouchableOpacity
                           onPress={() => {
                             if (this.state.platform === "android" || "web") {
@@ -230,6 +227,7 @@ export default class App extends Component {
                           </Text>
                         </TouchableOpacity>
                         <View style={{ height: "20px" }} />
+                        <Text style={styles.view}>Get Directions</Text>
                         <TouchableOpacity
                           style={styles.touchableOpacityCard}
                           onPress={() => {
@@ -271,6 +269,7 @@ export default class App extends Component {
                           </Text>
                           <View style={{ height: "20px" }} />
                         </TouchableOpacity>
+                        <View style={{ height: "20px" }} />
                         <Text style={styles.welcome}>Yelp Rating:</Text>
                         <View style={{ height: "10px" }} />
                         <Rating
@@ -280,6 +279,7 @@ export default class App extends Component {
                           readonly={true}
                           startingValue={filteredPlaces.rating}
                         />
+                        <Text style={styles.welcome}>Number of Reviews: {filteredPlaces.review_count}</Text>
                         <View style={{ height: "20px" }} />
                       </Card>
                     </View>
@@ -351,6 +351,12 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    justifyContent: "center",
+  },
+  filteredPlaces: {
+    fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
     justifyContent: "center",
